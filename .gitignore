@@ -3,3 +3,4 @@
 .settings/*
 .springbeans
 target/*
+.vagrant/*
