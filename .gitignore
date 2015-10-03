@@ -4,4 +4,3 @@
 .springbeans
 target/*
 .vagrant/*
-/target/
