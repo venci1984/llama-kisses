@@ -36,8 +36,8 @@
         <a class="navbar-brand" href="index.php?controller=pages&action=index">Llama Kisses</a>
       </div>
       <div class="collapse navbar-collapse">
-        <!--  {% if current_user is null %} -->
-        <form accept-charset="UTF-8" action="index.php?controller=users&action=login"
+        <!--  {% if current_user is null %} --> <!--index.php?controller=users&action=login" -->
+        <form accept-charset="UTF-8" action="login" 
           class="navbar-form navbar-right" role="form" method="post">
           <div class="form-group">
             <input type="text" name="user[email]" placeholder="Email" class="form-control">
