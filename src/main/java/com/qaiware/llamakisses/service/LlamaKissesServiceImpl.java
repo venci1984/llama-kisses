@@ -18,11 +18,15 @@ public class LlamaKissesServiceImpl implements LlamaKissesService {
 		this.userRepository = userRepository;
 	}
 	
-	
 	@Override
 	@Transactional(readOnly = true)
 	public User findUserById(int id) throws DataAccessException {
 		return userRepository.findById(id);
+	}
+
+	@Override
+	public User findUserByEmail(String email) throws DataAccessException {
+		return userRepository.findByEmail(email);
 	}
 
 }
