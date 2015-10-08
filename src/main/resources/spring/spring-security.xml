@@ -20,8 +20,8 @@
       <!--<user-service>-->
       <!-- <user name="venci" password="123" authorities="ROLE_USER" />-->
         <jdbc-user-service data-source-ref="dataSource"
-	     users-by-username-query="select email, password, 'true' from users where email=?"
-		  authorities-by-username-query="select email, role from user_roles where email =?" />
+	     users-by-username-query="${jdbc-user-service.users-by-username-query}"
+		  authorities-by-username-query="${jdbc-user-service.authorities-by-username-query}" />
       <!--</user-service>-->
     </authentication-provider>
   </authentication-manager>

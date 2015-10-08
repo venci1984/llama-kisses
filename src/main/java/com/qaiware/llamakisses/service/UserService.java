@@ -9,10 +9,12 @@ import com.qaiware.llamakisses.model.User;
  *
  * @author Venci
  */
-public interface LlamaKissesService {
+public interface UserService {
 
     User findUserById(int id) throws DataAccessException;
     
     User findUserByEmail(String email) throws DataAccessException;
+    
+    public void createUser(User user) throws DataAccessException;
 	
 }
