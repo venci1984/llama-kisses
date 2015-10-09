@@ -6,16 +6,20 @@ import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
 import com.qaiware.llamakisses.model.User;
+import com.qaiware.llamakisses.model.UserRole;
 import com.qaiware.llamakisses.repository.UserRepository;
+import com.qaiware.llamakisses.repository.UserRoleRepository;
 
 @Service
 public class UserServiceImpl implements UserService {
 
 	private UserRepository userRepository;
+	private UserRoleRepository userRoleRepository;
 	
 	@Autowired
-	public UserServiceImpl(UserRepository userRepository) {
+	public UserServiceImpl(UserRepository userRepository, UserRoleRepository userRoleRepository) {
 		this.userRepository = userRepository;
+		this.userRoleRepository = userRoleRepository;
 	}
 	
 	@Override
@@ -29,11 +33,16 @@ public class UserServiceImpl implements UserService {
 	public User findUserByEmail(String email) throws DataAccessException {
 		return userRepository.findByEmail(email);
 	}
-
+	
 	@Override
-	@Transactional(readOnly = true)
-	public void createUser(User user) throws DataAccessException {		
-		userRepository.create(user);		
+	@Transactional
+	public void createUser(User user, String role) throws DataAccessException {
+		
+		userRepository.create(user);
+		UserRole userRole = new UserRole();
+		userRole.setEmail(user.getEmail());
+		userRole.setRole(role);
+		userRoleRepository.create(userRole);
 	}
-
+	
 }

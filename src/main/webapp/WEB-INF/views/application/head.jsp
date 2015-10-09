@@ -4,18 +4,18 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <meta name="description" content="">
 <meta name="author" content="ventsislav.georgiev@qaiware.com">
-<link rel="shortcut icon" href="resources/ico/favicon.png">
+<link rel="shortcut icon" href="${pageContext.request.contextPath}/resources/ico/favicon.png">
 
 <title>Llama Kisses</title>
 
-<link href="resources/css/bootstrap.css" rel="stylesheet">
-<link href="resources/css/sticky-footer-navbar.css" rel="stylesheet">
-<link href="resources/css/navigation.css" rel="stylesheet">
+<link href="${pageContext.request.contextPath}/resources/css/bootstrap.css" rel="stylesheet">
+<link href="${pageContext.request.contextPath}/resources/css/sticky-footer-navbar.css" rel="stylesheet">
+<link href="${pageContext.request.contextPath}/resources/css/navigation.css" rel="stylesheet">
 
 <script src="https://bridge.paymill.com/" type="text/javascript"></script>
 <script src="https://static.paymill.com/assets/js/jquery/jquery-1.7.2.min.js" type="text/javascript"></script>
-<script src="resources/js/paymill.js" type="text/javascript"></script>
-<script src="resources/js/bootstrap.min.js" type="text/javascript"></script>
+<script src="${pageContext.request.contextPath}/resources/js/paymill.js" type="text/javascript"></script>
+<script src="${pageContext.request.contextPath}/resources/js/bootstrap.min.js" type="text/javascript"></script>
 
 <!-- Just for debugging purposes. Don't actually copy this line! -->
 <!--[if lt IE 9]><script src="../../docs-assets/js/ie8-responsive-file-warning.js"></script><![endif]-->

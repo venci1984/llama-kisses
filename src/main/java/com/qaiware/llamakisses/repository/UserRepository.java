@@ -10,4 +10,6 @@ public interface UserRepository {
     
     User findByEmail(String email) throws DataAccessException;
     
+    void create(User user) throws DataAccessException;
+    
 }

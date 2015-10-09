@@ -3,7 +3,7 @@
 <div class="jumbotron">
   <div class="container">
     <div class="pull-right" style="margin-top: 10px;">
-      <img src="resources/images/llama-heading.png" alt="Llama" style="margin-top: 20px; height: 225px;">
+      <img src="${pageContext.request.contextPath}/resources/images/llama-heading.png" alt="Llama" style="margin-top: 20px; height: 225px;">
     </div>
     <h1>Llama Ranch</h1>
     <p style="text-align: justify;">Here you can see how to process credit card payments or recurring payments (subscriptions) through

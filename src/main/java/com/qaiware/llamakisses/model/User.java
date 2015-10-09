@@ -5,8 +5,11 @@ import javax.persistence.Entity;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
 import javax.persistence.Table;
+import javax.persistence.Transient;
 
+import org.hibernate.validator.constraints.Email;
 import org.hibernate.validator.constraints.NotEmpty;
+import org.springframework.core.style.ToStringCreator;
 
 /**
  * Simple JavaBean domain object representing a user.
@@ -16,21 +19,24 @@ import org.hibernate.validator.constraints.NotEmpty;
 @Entity
 @Table(name = "users")
 public class User extends Base {
-	
+
 	@Column(name = "email")
-	@NotEmpty
+	@Email
+	@NotEmpty(message = "Email can't be blank")
 	private String email;
 
 	@Column(name = "password")
-	@NotEmpty
+	@NotEmpty(message = "Password can't be blank")
 	private String password;
 
+	@Transient
+	private String passwordConfirm;
+
 	@Column(name = "name")
-	@NotEmpty
+	@NotEmpty(message = "Name can't be blank")
 	private String name;
 
 	@Column(name = "paymill_id")
-	@NotEmpty
 	private String paymill_id;
 
 	@ManyToOne
@@ -76,5 +82,22 @@ public class User extends Base {
 	public void setOffer(Offer offer) {
 		this.offer = offer;
 	}
-	
+
+	public String getPasswordConfirm() {
+		return passwordConfirm;
+	}
+
+	public void setPasswordConfirm(String passwordConfirm) {
+		this.passwordConfirm = passwordConfirm;
+	}
+
+	@Override
+	public String toString() {
+
+		return new ToStringCreator(this)
+
+		.append("id", this.id).append("email", this.email).append("password", this.password).append("name", this.name)
+				.append("paymill_id", this.paymill_id).append("offer", this.offer.getName()).toString();
+	}
+
 }

@@ -18,18 +18,28 @@ public class JpaUserRepositoryImpl implements UserRepository {
 
 	@Override
 	public User findById(int id) throws DataAccessException {
-		
-        Query query = this.em.createQuery("SELECT user FROM User user WHERE user.id= :id");
-        query.setParameter("id", id);
-        return (User) query.getSingleResult();
+
+		Query query = this.em.createQuery("SELECT user FROM User user WHERE user.id= :id");
+		query.setParameter("id", id);
+		return (User) query.getSingleResult();
 	}
 
 	@Override
 	public User findByEmail(String email) throws DataAccessException {
+
+		Query query = this.em.createQuery("SELECT user FROM User user WHERE user.email= :email");
+		query.setParameter("email", email);
+		return (User) query.getSingleResult();
+	}
+
+	@Override
+	public void create(User user) throws DataAccessException {
 		
-        Query query = this.em.createQuery("SELECT user FROM User user WHERE user.email= :email");
-        query.setParameter("email", email);
-        return (User) query.getSingleResult();
+		if (user.getId() == null) {
+			this.em.persist(user);
+		} else {
+			this.em.merge(user);
+		}
 	}
 
 }
