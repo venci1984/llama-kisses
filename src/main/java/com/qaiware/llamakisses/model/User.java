@@ -16,6 +16,7 @@ import org.hibernate.validator.constraints.NotEmpty;
 @Entity
 @Table(name = "users")
 public class User extends Base {
+	
 	@Column(name = "email")
 	@NotEmpty
 	private String email;
@@ -75,4 +76,5 @@ public class User extends Base {
 	public void setOffer(Offer offer) {
 		this.offer = offer;
 	}
+	
 }
