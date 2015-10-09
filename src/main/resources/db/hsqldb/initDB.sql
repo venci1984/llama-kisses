@@ -1,6 +1,7 @@
 DROP TABLE offers IF EXISTS;
 DROP TABLE users IF EXISTS;
 DROP TABLE subscriptions IF EXISTS;
+DROP TABLE user_roles IF EXISTS;
 
 CREATE TABLE offers (
   id  				INTEGER IDENTITY PRIMARY KEY,
@@ -19,6 +20,14 @@ CREATE TABLE users (
 );
 ALTER TABLE users ADD CONSTRAINT fk_users_offers FOREIGN KEY (offer_id) REFERENCES offers (id);
 ALTER TABLE users ADD CONSTRAINT un_email UNIQUE (email);
+
+CREATE TABLE user_roles (
+  user_role_id 		INTEGER IDENTITY PRIMARY KEY,
+  email 			VARCHAR(255) DEFAULT '' NOT NULL,
+  role 				VARCHAR(255) DEFAULT '' NOT NULL
+ );
+ ALTER TABLE user_roles ADD CONSTRAINT fk_email FOREIGN KEY (email) REFERENCES users (email);
+ ALTER TABLE user_roles ADD CONSTRAINT un_email_role UNIQUE (role,email);
 
 CREATE TABLE subscriptions (
   id       			INTEGER IDENTITY PRIMARY KEY,

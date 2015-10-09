@@ -12,10 +12,10 @@ import javax.persistence.MappedSuperclass;
  */
 @MappedSuperclass
 public class Base {
+	
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     protected Integer id;
-
 
     public void setId(Integer id) {
         this.id = id;

@@ -14,6 +14,7 @@ import org.hibernate.validator.constraints.NotEmpty;
 @Entity
 @Table(name = "offers")
 public class Offer extends Base {
+	
 	@Column(name = "name")
 	@NotEmpty
 	private String name;
@@ -49,4 +50,5 @@ public class Offer extends Base {
 	public void setPaymill_id(String paymill_id) {
 		this.paymill_id = paymill_id;
 	}
+	
 }

@@ -9,20 +9,31 @@ import com.qaiware.llamakisses.model.User;
 import com.qaiware.llamakisses.repository.UserRepository;
 
 @Service
-public class LlamaKissesServiceImpl implements LlamaKissesService {
+public class UserServiceImpl implements UserService {
 
 	private UserRepository userRepository;
 	
 	@Autowired
-	public LlamaKissesServiceImpl(UserRepository userRepository) {
+	public UserServiceImpl(UserRepository userRepository) {
 		this.userRepository = userRepository;
 	}
-	
 	
 	@Override
 	@Transactional(readOnly = true)
 	public User findUserById(int id) throws DataAccessException {
 		return userRepository.findById(id);
+	}
+
+	@Override
+	@Transactional(readOnly = true)
+	public User findUserByEmail(String email) throws DataAccessException {
+		return userRepository.findByEmail(email);
+	}
+
+	@Override
+	@Transactional(readOnly = true)
+	public void createUser(User user) throws DataAccessException {		
+		userRepository.create(user);		
 	}
 
 }
