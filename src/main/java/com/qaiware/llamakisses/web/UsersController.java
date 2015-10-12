@@ -7,25 +7,16 @@ import javax.validation.Valid;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.dao.EmptyResultDataAccessException;
-import org.springframework.security.core.context.SecurityContextHolder;
-import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.ModelMap;
 import org.springframework.validation.BindingResult;
-import org.springframework.validation.FieldError;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
 
-import com.paymill.context.PaymillContext;
-import com.paymill.models.Client;
-import com.paymill.services.ClientService;
-import com.qaiware.llamakisses.model.Offer;
 import com.qaiware.llamakisses.model.User;
-import com.qaiware.llamakisses.service.OfferService;
 import com.qaiware.llamakisses.service.UserService;
 
 @Controller
