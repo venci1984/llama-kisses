@@ -10,13 +10,9 @@ import com.qaiware.llamakisses.repository.OfferRepository;
 
 @Service
 public class OfferServiceImpl implements OfferService {
-
-	private OfferRepository offerRepository;
 	
 	@Autowired
-	public OfferServiceImpl(OfferRepository offerRepository) {
-		this.offerRepository = offerRepository;
-	}
+	private OfferRepository offerRepository;
 	
 	@Override
 	@Transactional(readOnly = true)
