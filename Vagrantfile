@@ -77,8 +77,8 @@ Vagrant.configure(2) do |config|
   config.vm.provision :chef_solo do |chef|
     chef.cookbooks_path = ['~/.chef/cookbooks']
     chef.add_recipe 'apt::default'
-    #chef.add_recipe 'xvfb'
-    #chef.add_recipe 'google-chrome'
+    chef.add_recipe 'xvfb'
+    chef.add_recipe 'google-chrome'
     chef.add_recipe 'java::default'
     chef.add_recipe 'maven'
     #chef.add_recipe 'rvm::system'
