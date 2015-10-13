@@ -22,7 +22,7 @@ ALTER TABLE users ADD CONSTRAINT fk_users_offers FOREIGN KEY (offer_id) REFERENC
 ALTER TABLE users ADD CONSTRAINT un_email UNIQUE (email);
 
 CREATE TABLE user_roles (
-  user_role_id 		INTEGER IDENTITY PRIMARY KEY,
+  id 				INTEGER IDENTITY PRIMARY KEY,
   email 			VARCHAR(255) DEFAULT '' NOT NULL,
   role 				VARCHAR(255) DEFAULT '' NOT NULL
  );

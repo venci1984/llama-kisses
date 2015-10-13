@@ -12,7 +12,7 @@
     <div class="collapse navbar-collapse">
       <c:choose>
         <c:when test="${empty currentUser}"> 
-        <form accept-charset="UTF-8" action="j_spring_security_check" class="navbar-form navbar-right" role="form" method="post">
+        <form accept-charset="UTF-8" action="${pageContext.request.contextPath}/j_spring_security_check" class="navbar-form navbar-right" role="form" method="post">
             <div class="form-group">
               <input type="text" name="j_username" placeholder="Email" class="form-control">
             </div>
@@ -23,7 +23,7 @@
           </form>
         </c:when>
         <c:otherwise>
-          <a href="<c:url value="j_spring_security_logout" />" class="btn btn-success navbar-right" style="margin-top: 8px;">Log Out</a>
+          <a href="${pageContext.request.contextPath}/j_spring_security_logout" class="btn btn-success navbar-right" style="margin-top: 8px;">Log Out</a>
           <h4 class="navbar-right" style="color: #ffffff; margin: 14px 10px 0px 0px;">${currentUser}</h4>
         </c:otherwise>
       </c:choose>
